@@ -1,7 +1,13 @@
-# docker-redis-cluster
+# 基于docker使用ruby工具快速构建的Redis集群,是Redis的分布式解决方案
 
-基于CentOS的使用ruby工具快速构建的Redis集群,是Redis的分布式解决方案
+### 使用ruby工具快速构建
+```
+redis-trib.rb create --replicas 1 192.168.25.134:6391 192.168.25.134:6392 192.168.25.134:6393 192.168.25.134:6394 192.168.25.134:6395  192.168.25.134:6396
 
+```
+###  create --replicas 1 意思就是说,为每个节点创建一个副本,也就是备份,如果 是不同的服务器,那么后面的端口也需要改成服务器的端口,  前面3个ip是主机,后面3个ip是备份机(从机)
+
+```
 config                    配置文件目录
    |____nodes-6391.conf     主节点1
    |____nodes-6392.conf     主节点2
@@ -13,9 +19,7 @@ config                    配置文件目录
    |____nodes-6398.conf     备用测试从节点4
    |____redis.sh            容器启动后运行的脚本
    |____redis-trib.rb       ruby 实现的 redis 集群管理工具
-   
-Dockerfile              构建Redis镜像文件
+  ```
 
-docker-compose.yaml     编排所有需要运行的容器文件
 
 
