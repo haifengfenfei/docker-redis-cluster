@@ -1,5 +1,5 @@
 FROM centos:latest
-MAINTAINER peter "990979940@qq.com"
+MAINTAINER test "123456@qq.com"
 RUN groupadd -r redis && useradd  -r -g redis redis
 RUN  yum -y update &&  yum -y install epel-release \
 &&   yum -y install redis  && yum -y install wget \
